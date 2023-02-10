@@ -1,0 +1,64 @@
+<!-- Design an HTML page to display the following table with required HTML tags and attributes. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            width: 80vw;
+        }
+
+        table,
+        tr,
+        td {
+            border: 1.5px solid black;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding:10px;
+            text-align: center;
+        }
+    </style>
+    <title>Practical</title>
+</head>
+
+<body>
+    <h1> Practical 3 </h1>
+    <center>
+        <table>
+            <tbody>
+                <tr>
+                    <td rowspan="2">A</td>
+                    <td>B</td>
+                    <td rowspan="3">D</td>
+                    <td colspan="3">E</td>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td rowspan="2" colspan="1">G</td>
+                    <td rowspan="2" colspan="1">H</td>
+                    <td rowspan="2" colspan="2">I</td>
+                </tr>
+                <tr>
+                    <td colspan="2">J</td>
+                </tr>
+                <tr>
+                    <td colspan="7">N</td>
+                </tr>
+                <tr>
+                    <td colspan="3">K</td>
+                    <td>L</td>
+                    <td colspan="3">M</td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+</body>
+
+</html>
