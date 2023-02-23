@@ -1,0 +1,96 @@
+<!-- Create a Registration form for following
+a. New User registration on the website
+b. New admission to the college
+c. Open a new Bank account -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 4</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .webRegistration{
+            border: 1px solid black;
+            width: 100%;
+            margin-top: 10px;
+            padding: 5px;
+        }
+        .collegeRegistration{
+            border: 1px solid black;
+            width: 100%;
+            margin-top: 10px;
+            padding: 5px;
+        }
+        .bankAccount{
+            border: 1px solid black;
+            width: 100%;
+            margin-top: 10px;
+            padding: 5px;
+        }
+        label,input{
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="webRegistration">
+        <form action="" method="post">
+            <h1>Web Registration</h1>
+            <label for="Name">Name</label>
+            <input type="text" placeholder="Enter Your Name"><br>
+            <label for="Email">Email</label>
+            <input type="email" placeholder="Enter Your Email"><br>
+            <label for="Password">Password</label>
+            <input type="password">
+        </form>
+    </div>
+    <div class="collegeRegistration">
+        <form action="" method="post">
+            <h1>College Registration</h1>
+            <label for="Name">Name</label>
+            <input type="text" placeholder="Enter Your Name"><br>
+            <label for="Email">Email</label>
+            <input type="email" placeholder="Enter Your Email"><br>
+            <label for="Password">Password</label>
+            <input type="password"><br>
+            <label for="Enrollment">Enrollment No.</label>
+            <input type="text" placeholder="Enter Your Enrollment No."><br>
+            <label for="Branch">Branch</label>
+            <input type="text" placeholder="Enter Your Branch"><br>
+            <label for="Semester">Semester</label>
+            <input type="text" placeholder="Enter Your Semester"><br>
+        </form>
+    </div>
+    <div class="bankAccount">
+        <form action="" method="post">
+            <h1>Bank Account</h1>
+            <label for="Name">Name</label>
+            <input type="text" placeholder="Enter Your Name"><br>
+            <label for="Email">Email</label>
+            <input type="email" placeholder="Enter Your Email"><br>
+            <label for="Password">Password</label>
+            <input type="password"><br>
+            <label for="Account">Account No.</label>
+            <input type="text" placeholder="Enter Your Account No."><br>
+            <label for="Branch">Branch</label>
+            <input type="text" placeholder="Enter Your Branch"><br>
+        </form>
+    </div>
+</body>
+
+</html>
