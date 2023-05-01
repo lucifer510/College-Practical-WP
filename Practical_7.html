@@ -1,0 +1,219 @@
+<!-- Design HTML form and validate content using javascript with the following
+constraints:
+Name accepts only alphabet character
+Mobile Number with exactly 10 numbers
+Email Id in valid format (@ must be included)
+Display hint on mouse over the textbox
+At least a single radio button selected -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 7</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Baloo', cursive;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            animation: gradient 10s ease-in-out infinite alternate;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:hover::before,
+        input[type="tel"]:hover::before,
+        input[type="email"]:hover::before {
+            content: attr(title);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        input[type="text"]:hover::before,
+        input[type="tel"]:hover::before,
+        input[type="email"]:hover::before {
+            transform: translateY(5px);
+        }
+
+        input[type="text"]:hover::before {
+            transform-origin: top;
+        }
+
+        input[type="tel"]:hover::before,
+        input[type="email"]:hover::before {
+            transform-origin: bottom;
+        }
+
+        input[type="text"]:hover::before,
+        input[type="tel"]:hover::before,
+        input[type="email"]:hover::before {
+            transform-origin: bottom;
+            z-index: 1;
+            opacity: 1;
+        }
+
+        input[type="text"]:hover::before,
+        input[type="tel"]:hover::before,
+        input[type="email"]:hover::before {
+            opacity: 1;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="tel"]::placeholder,
+        input[type="email"]::placeholder {
+            color: #b9b4b4;
+        }
+
+        .radio-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        @media screen and (max-width: 600px) {
+            .form-container {
+                height: auto;
+            }
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: left;
+            }
+
+            100% {
+                background-position: right;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <form onsubmit="return validateForm()">
+            <h1>Practical 7</h1>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required> 
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" required> 
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="gender">Gender:</label>
+            <div class="radio-container">
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Male</label> 
+
+                <input type="radio" id="female" name="gender" value="female" required>
+                <label for="female">Female</label>
+
+                <input type="radio" id="other" name="gender" value="other" required>
+                <label for="other">Other</label>
+            </div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var mobile = document.getElementById("mobile").value;
+            var email = document.getElementById("email").value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+
+            var nameRegex = /^[a-zA-Z]+$/;
+            var mobileRegex = /^\d{10}$/;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!nameRegex.test(name)) {
+                alert("Name must contain only alphabet characters");
+                return false;
+            }
+
+            if (!mobileRegex.test(mobile)) {
+                alert("Mobile number must contain exactly 10 numbers");
+                return false;
+            }
+
+            if (!emailRegex.test(email)) {
+                alert("Email must be in a valid format");
+                return false;
+            }
+
+            if (!gender) {
+                alert("Please select a gender");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>
