@@ -1,52 +1,45 @@
-<?php
+<html>
 
-// Start session
-session_start();
+<head>
+    <title>Practical 9</title>
+    <style>
+        body {
+            padding-top: 50px;
+        }
 
-// Define username and password for authentication
-$valid_username = "john";
-$valid_password = "password123";
+        h1,
+        p {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
 
-// Check if user has submitted the login form
-if (isset($_POST['username']) && isset($_POST['password'])) {
-    // Check if the submitted username and password match the valid credentials
-    if ($_POST['username'] === $valid_username && $_POST['password'] === $valid_password) {
-        // Authentication successful, set a session variable to mark the user as authenticated
-        $_SESSION['authenticated'] = true;
-        // Redirect the user to the resume page
-        header("Location: resume.php");
-        exit();
-    } else {
-        // Authentication failed, show an error message
-        $error_message = "Invalid username or password";
-    }
-}
+<body>
+    <h1>Find Maximum and Minimum Value in Array</h1>
+    <p>
+        <?php
+        $numbers = array(3, 5, 2, 8, 9, 1, 4);
 
-// Check if the user is already authenticated
-if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true) {
-    // User is authenticated, allow access to the pages
-    include('resume.php');
-    include('timetable.php');
-    include('calculator.php');
-} else {
-    // User is not authenticated, show the login form
-    ?>
+        // Finding the maximum value
+        $max = $numbers[0];
+        for ($i = 1; $i < count($numbers); $i++) {
+            if ($numbers[$i] > $max) {
+                $max = $numbers[$i];
+            }
+        }
+        echo "The maximum value is: " . $max . "<br>";
 
-    <h1>Login</h1>
-    <?php if (isset($error_message)) { ?>
-        <p>
-            <?php echo $error_message; ?>
-        </p>
-    <?php } ?>
-    <form method="post">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-        <br>
-        <input type="submit" value="Login">
-    </form>
+        // Finding the minimum value
+        $min = $numbers[0];
+        for ($i = 1; $i < count($numbers); $i++) {
+            if ($numbers[$i] < $min) {
+                $min = $numbers[$i];
+            }
+        }
+        echo "The minimum value is: " . $min;
+        ?>
+    </p>
+</body>
 
-    <?php
-}
+</html>
