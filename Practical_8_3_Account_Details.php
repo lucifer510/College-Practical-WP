@@ -101,5 +101,5 @@
             mysqli_close($conn);
             ?>
         </table>
-        <a href="Pr -8.3 Bank account open form.html">New Account? <br> Click here to Open Account</a>
+        <a href="Practical_8_3_BankAcForm.html">New Account? <br> Click here to Open Account</a>
     </div>
